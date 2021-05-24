@@ -8,8 +8,8 @@ class TodosController < ApplicationController
 
   def show
     id = params[:id]
-    todo = Todo.find(id)
-    render plain: todo.to_pleasant_string
+    todo = Todo.find_by(id: id)
+    render plain: (todo.nil?) ? "Record not found" : todo.to_pleasant_string
   end
 
   def create
@@ -27,9 +27,13 @@ class TodosController < ApplicationController
   def update
     id = params[:id]
     completed = params[:completed]
-    todo = Todo.find(id)
-    todo.completed = completed
-    todo.save!
-    render plain: "Updated todo completed status to #{completed}"
+    todo = Todo.find_by(id: id)
+    if (todo.nil?)
+      render plain: "Record not found"
+    else
+      todo.completed = completed
+      todo.save!
+      render plain: "Updated todo completed status to #{completed}"
+    end
   end
 end
