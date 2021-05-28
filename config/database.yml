@@ -15,8 +15,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: test_saas_db
+  database: saas_db
 
 production:
   <<: *default
-  database: prod_saas_db
+  database: saas_db
