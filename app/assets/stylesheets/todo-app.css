@@ -83,16 +83,10 @@ body {
   height: 16px;
 }
 
-.TodoItem-overdueLabel {
-  margin-left: 10px;
-  color: #c53030;
-  font-size: 12px;
-}
-
-.TodoItem-date {
+.TodoItem-dueDate {
   margin-left: 10px;
   color: #453c52;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .TodoItem-delete {
@@ -106,7 +100,7 @@ body {
 
 .TodoItem-container:hover {
   background-color: #f1edf7;
-  width: fit-content;
+  /* width: fit-content; */
   border-radius: 4px;
 }
 
