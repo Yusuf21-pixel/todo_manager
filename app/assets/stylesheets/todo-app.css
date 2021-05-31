@@ -107,3 +107,7 @@ body {
 .TodoItem-container:hover .TodoItem-delete {
   visibility: visible;
 }
+
+.TodoItem-cutWord {
+  text-decoration: line-through;
+}
