@@ -45,6 +45,7 @@ body {
   border: 1px solid transparent;
   padding: 6px 12px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .TodoSection {
@@ -100,7 +101,7 @@ body {
 
 .TodoItem-container:hover {
   background-color: #f1edf7;
-  /* width: fit-content; */
+  width: fit-content;
   border-radius: 4px;
 }
 
