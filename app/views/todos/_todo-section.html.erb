@@ -13,12 +13,12 @@
         <li class="TodoItem">
             <div class="TodoItem-container">
                 <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
-                    <input type="checkbox"
-                          class="TodoItem-checkbox"
-                          name="completed"
-                          onclick="this.form.submit()"
-                          <%= todo.completed ? "checked" : "" %>
-                    />
+                    <%= check_box_tag("completed",
+                          value = "2",
+                          checked = todo.completed ? true : false ,
+                          class: "TodoItem-checkbox",
+                          onclick: "this.form.submit()")
+                    %>
                 <% end %>
                 <p class=<%= todo.completed ? "TodoItem-cutWord" : "" %>> <%= todo.todo_text %> </p>
                 <% if show_due_date %>
@@ -26,7 +26,7 @@
                 <% end %>
                 <a href="javascript:void(0)" class="TodoItem-delete">
                   <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
-                    <input type="image" src="trashcan.png" class="TodoItem-deleteIcon"/>
+                    <%= image_submit_tag("trashcan.png", class: "TodoItem-deleteIcon", alt: "Trash Can") %>
                   <% end %>
                 </a>
             </div>
