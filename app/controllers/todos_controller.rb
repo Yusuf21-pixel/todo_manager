@@ -26,13 +26,9 @@ class TodosController < ApplicationController
   def update
     id = params[:id]
     completed = params[:completed]
-    todo = Todo.find_by(id: id)
-    if (todo.nil?)
-      render plain: "Record not found"
-    else
-      todo.completed = completed
-      todo.save!
-      render plain: "Updated todo completed status to #{completed}"
-    end
+    todo = Todo.find(id)
+    todo.completed = completed
+    todo.save!
+    redirect_to todos_path
   end
 end
