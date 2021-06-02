@@ -12,13 +12,8 @@
     <% if !(hide_completed && todo.completed) %>
         <li class="TodoItem">
           <div class="TodoItem-container">
-            <% if todo.completed %>
-               <input type="checkbox" class="TodoItem-checkbox" checked/>
-               <p class="TodoItem-cutWord"> <%= todo.todo_text %> </p>
-            <% else %>
-               <input type="checkbox" class="TodoItem-checkbox"/>
-               <%= todo.todo_text %>
-            <% end %>
+          <input type="checkbox" class="TodoItem-checkbox" <%= todo.completed ? "checked" : "" %> />
+          <p class=<%= todo.completed ? "TodoItem-cutWord" : "" %>> <%= todo.todo_text %> </p>
             <% if show_due_date %>
                 <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %> </p>
             <% end %>
