@@ -8,21 +8,19 @@
     <% end %>
   </div>
   <ul>
-  <% todos.all.each do |todo| %>
-    <% if !(hide_completed && todo.completed) %>
-        <li class="TodoItem">
-          <div class="TodoItem-container">
-          <input type="checkbox" class="TodoItem-checkbox" <%= todo.completed ? "checked" : "" %> />
-          <p class=<%= todo.completed ? "TodoItem-cutWord" : "" %>> <%= todo.todo_text %> </p>
-            <% if show_due_date %>
-                <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %> </p>
-            <% end %>
-            <a href="javascript:void(0)" class="TodoItem-delete">
-              <img src="trashcan.png" alt="trashcan" />
-            </a>
-          </div>
-        </li>
+    <% todos.all.each do |todo| %>
+          <li class="TodoItem">
+              <div class="TodoItem-container">
+                  <input type="checkbox" class="TodoItem-checkbox" <%= todo.completed ? "checked" : "" %> />
+                  <p class=<%= todo.completed ? "TodoItem-cutWord" : "" %>> <%= todo.todo_text %> </p>
+                  <% if show_due_date %>
+                      <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %> </p>
+                  <% end %>
+                  <a href="javascript:void(0)" class="TodoItem-delete">
+                    <img src="trashcan.png" alt="trashcan" />
+                  </a>
+              </div>
+          </li>
     <% end %>
-  <% end %>
   </ul>
 </section>
