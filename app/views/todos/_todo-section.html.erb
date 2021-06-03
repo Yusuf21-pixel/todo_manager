@@ -2,7 +2,7 @@
   <div class="TodoSectionTitle">
     <p class="TodoSectionTitle-text"> <%= section_title %> </p>
     <% if hide_completed %>
-       <p class="TodoSectionTitle-remainingCount">0 / <%= todos.count - todos.completed.count %> </p>
+       <p class="TodoSectionTitle-remainingCount"> <%= todos.count %> </p>
     <% else %>
        <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count %> / <%= todos.count %> </p>
     <% end %>
