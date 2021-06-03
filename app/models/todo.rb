@@ -1,9 +1,5 @@
 class Todo < ActiveRecord::Base
-  def to_pleasant_string
-    iscompleted = completed ? "[X]" : "[ ]"
-    "#{id}. #{due_date.to_s(:long)} #{todo_text} #{iscompleted}"
-  end
-
+  belongs_to :user
   def self.overdue
     where("due_date < ?", Date.today)
   end
