@@ -2,19 +2,18 @@
   <div class="TodoSectionTitle">
     <p class="TodoSectionTitle-text"> <%= section_title %> </p>
     <% if hide_completed %>
-       <p class="TodoSectionTitle-remainingCount">0 / <%= todos.count - todos.completed.count %> </p>
+       <p class="TodoSectionTitle-remainingCount"> <%= todos.count %> </p>
     <% else %>
        <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count %> / <%= todos.count %> </p>
     <% end %>
   </div>
   <ul>
   <% todos.all.each do |todo| %>
-    <% if !(hide_completed && todo.completed) %>
         <li class="TodoItem">
             <div class="TodoItem-container">
                 <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
                     <%= check_box_tag("completed",
-                          value = "2",
+                          value = "completed",
                           checked = todo.completed ? true : false ,
                           class: "TodoItem-checkbox",
                           onclick: "this.form.submit()")
@@ -31,7 +30,6 @@
                 </a>
             </div>
         </li>
-    <% end %>
   <% end %>
   </ul>
 </section>

@@ -4,12 +4,6 @@ class TodosController < ApplicationController
     render "index"
   end
 
-  def show
-    id = params[:id]
-    todo = Todo.find_by(id: id)
-    render plain: (todo.nil?) ? "Record not found" : todo.to_pleasant_string
-  end
-
   def create
     todo_text = params[:todo_text]
     due_date = DateTime.parse(params[:due_date])

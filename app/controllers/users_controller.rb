@@ -1,10 +1,9 @@
 # users_controller.rb
 class UsersController < ApplicationController
-  has_many :todos
   skip_before_action :verify_authenticity_token
 
-  def index
-    render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
+  def new
+    render "new"
   end
 
   def create
