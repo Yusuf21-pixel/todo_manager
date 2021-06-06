@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <ul>
-  <% todos.all.each do |todo| %>
+    <% todos.all.each do |todo| %>
         <li class="TodoItem">
             <div class="TodoItem-container">
                 <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
@@ -30,6 +30,6 @@
                 </a>
             </div>
         </li>
-  <% end %>
+    <% end %>
   </ul>
 </section>
