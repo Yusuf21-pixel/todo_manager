@@ -1,8 +1,8 @@
 <main class="TodoPageMain">
       <h1 class="TodoPage-title">My Todo-list</h1>
       <%= form_with(url: "/todos", method: "post", class: "AddTodo") do %>
-         <%= text_field_tag "todo_text", nil, class: "AddTodo-text", placeholder: "What's next?", required: true %>
-         <%= date_field_tag "due_date", nil, class: "AddTodo-date", required: true %>
+         <%= text_field_tag "todo_text", nil, class: "AddTodo-text", placeholder: "What's next?"%>
+         <%= date_field_tag "due_date", nil, class: "AddTodo-date" %>
          <%= submit_tag "Add", class: "AddTodo-button" %>
       <% end %>
       <%= render partial: "todo-section", locals: {
