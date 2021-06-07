@@ -9,18 +9,27 @@
   </div>
   <ul>
     <% todos.all.each do |todo| %>
-          <li class="TodoItem">
-              <div class="TodoItem-container">
-                  <input type="checkbox" class="TodoItem-checkbox" <%= todo.completed ? "checked" : "" %> />
-                  <p class=<%= todo.completed ? "TodoItem-cutWord" : "" %>> <%= todo.todo_text %> </p>
-                  <% if show_due_date %>
-                      <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %> </p>
+        <li class="TodoItem">
+            <div class="TodoItem-container">
+                <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
+                    <%= check_box_tag("completed",
+                          value = "completed",
+                          checked = todo.completed ? true : false ,
+                          class: "TodoItem-checkbox",
+                          onclick: "this.form.submit()")
+                    %>
+                <% end %>
+                <p class=<%= todo.completed ? "TodoItem-cutWord" : "" %>> <%= todo.todo_text %> </p>
+                <% if show_due_date %>
+                    <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %> </p>
+                <% end %>
+                <a href="javascript:void(0)" class="TodoItem-delete">
+                  <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
+                    <%= image_submit_tag("trashcan.png", class: "TodoItem-deleteIcon", alt: "Trash Can") %>
                   <% end %>
-                  <a href="javascript:void(0)" class="TodoItem-delete">
-                    <img src="trashcan.png" alt="trashcan" />
-                  </a>
-              </div>
-          </li>
+                </a>
+            </div>
+        </li>
     <% end %>
   </ul>
 </section>

@@ -45,6 +45,7 @@ body {
   border: 1px solid transparent;
   padding: 6px 12px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .TodoSection {
@@ -94,13 +95,9 @@ body {
   margin-left: 8px;
 }
 
-.TodoItem-delete > img {
-  width: 16px;
-}
-
 .TodoItem-container:hover {
   background-color: #f1edf7;
-  /* width: fit-content; */
+  width: fit-content;
   border-radius: 4px;
 }
 
@@ -110,4 +107,8 @@ body {
 
 .TodoItem-cutWord {
   text-decoration: line-through;
+}
+
+.TodoItem-deleteIcon {
+  width: 16px;
 }

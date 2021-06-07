@@ -1,20 +1,22 @@
 # users_controller.rb
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :ensure_user_logged_in
 
-  def index
-    render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
+  def new
+    render "new"
   end
 
   def create
-    user = User.create!(name: params[:name], email: params[:email], password: params[:password])
-    response_text = "New user is created with the id #{user.id}"
-    render plain: response_text
-  end
-
-  def login
-    user = User.find_by(email: params[:email])
-    # If the record is not found or password doesn't match it will render false else it will render true.
-    render plain: ((!user.nil?) && (user.password == params[:password])) ? "True" : "False"
+    user = User.new(first_name: params[:first_name],
+                    last_name: params[:last_name],
+                    email: params[:email],
+                    password: params[:password])
+    if user.save
+      session[:current_user_id] = user.id
+      redirect_to "/"
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to new_user_path
+    end
   end
 end
