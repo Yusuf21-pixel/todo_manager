@@ -14,7 +14,7 @@
                 <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
                     <%= check_box_tag("completed",
                           value = "completed",
-                          checked = todo.completed ? true : false ,
+                          checked = todo.completed ,
                           class: "TodoItem-checkbox",
                           onclick: "this.form.submit()")
                     %>
