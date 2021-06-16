@@ -2,7 +2,7 @@ Todo-Manager application
 
 This is the todo application in which a user can sign-up or sign-in and see their respective todos and user can mark a todo as completed or delete a todo.The user can sign-out whenever they wish.
 
-To checkout the todo application click the link below:
+To checkout the todo application click the link:
 #[Todo-Manager](https://yusuf-todo-manager-saas-201.herokuapp.com/)
 
 Sample email: test@test.com
