@@ -6,6 +6,7 @@ To checkout the todo application click the link:
 #[Todo-Manager](https://yusuf-todo-manager-saas-201.herokuapp.com/)
 
 Sample email: test@test.com
+
 Sample Password: test
 
 Home page
