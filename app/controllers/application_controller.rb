@@ -17,10 +17,4 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
-
-  def destroy
-    session[:current_user_id] = nil
-    @current_user = nil
-    redirect_to "/"
-  end
 end
