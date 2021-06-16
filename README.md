@@ -1,4 +1,4 @@
-#[Todo-Manager application]
+Todo-Manager application
 
 This is the todo application in which a user can sign-up or sign-in and see their respective todos and user can mark a todo as completed or delete a todo.The user can sign-out whenever they wish.
 
